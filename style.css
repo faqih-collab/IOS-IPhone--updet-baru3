@@ -1,0 +1,250 @@
+:root {
+    --ios-bg: #000000;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.12);
+    --accent: #007AFF;
+    --text-main: #FFFFFF;
+    --text-sub: #EBEBF599;
+  }
+
+  body {
+    background: radial-gradient(circle at center, #1c1c1e 0%, #000000 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .page-caption {
+    position: absolute;
+    top: 15px;
+    color: #888;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot { width: 8px; height: 8px; background: #34C759; border-radius: 50%; box-shadow: 0 0 8px #34C759; }
+
+  /* Kerangka iPhone */
+  .phone {
+    width: 320px;
+    height: 650px;
+    background: #000000;
+    border-radius: 46px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 0 0 10px #2c2c2e, inset 0 0 0 12px #1c1c1e;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 28px;
+    background: #000000;
+    border-radius: 14px;
+    z-index: 100;
+    cursor: pointer;
+  }
+
+  .screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+  }
+
+  .statusbar {
+    height: 44px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    z-index: 90;
+    box-sizing: border-box;
+    margin-top: 4px;
+  }
+
+  .icons { display: flex; gap: 6px; align-items: center; }
+  .signal { display: flex; gap: 2px; align-items: flex-end; height: 10px; }
+  .signal span { width: 3px; background: white; border-radius: 1px; }
+  .signal span:nth-child(1){height:4px;} .signal span:nth-child(2){height:6px;} .signal span:nth-child(3){height:8px;} .signal span:nth-child(4){height:10px;}
+  .battery { width: 22px; height: 11px; border: 1.5px solid white; border-radius: 3px; padding: 1px; position: relative; }
+  .battery-fill { height: 100%; width: 75%; background: white; border-radius: 1px; }
+
+  /* Home Screen */
+  #home {
+    flex: 1;
+    background: linear-gradient(135deg, #121214 0%, #1f1f23 100%);
+    padding: 20px 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px 12px;
+    margin-top: 10px;
+  }
+
+  .app-icon {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .app-icon:active { transform: scale(0.9); }
+
+  .icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  }
+  .app-icon span { color: var(--text-main); font-size: 11px; font-weight: 500; }
+
+  .ic-1 { background: linear-gradient(135deg, #FF9500, #FF3B30); color: white; }
+  .ic-2 { background: linear-gradient(135deg, #5856D6, #AF52DE); color: white; }
+  .ic-3 { background: linear-gradient(135deg, #FFCC00, #FF9500); color: white; }
+  .ic-4 { background: linear-gradient(135deg, #34C759, #30B0C7); color: white; }
+  .ic-wa { background: linear-gradient(135deg, #25D366, #128C7E); color: white; }
+  .ic-safari { background: linear-gradient(135deg, #1E90FF, #0047AB); color: white; }
+  .ic-medsos { background: linear-gradient(135deg, #f09433, #dc2743, #bc1888); color: white; }
+  .ic-camera { background: linear-gradient(135deg, #8E8E93, #3A3A3C); color: white; }
+  .ic-spotify { background: #1DB954; color: white; }
+  .ic-game { background: linear-gradient(135deg, #34C759, #30B0C7); color: white; }
+
+  .dock {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .dock .icon-box { width: 50px; height: 50px; font-size: 22px; }
+
+  /* App Screen Dasar */
+  .app-screen {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #1c1c1e;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.1, 0.9, 0.2, 1);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+  .app-screen.open { transform: translateY(0); }
+
+  .app-header {
+    height: 50px;
+    background: rgba(28, 28, 30, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 10px;
+  }
+  .app-header h1 { font-size: 16px; font-weight: 600; margin: 0; flex: 1; }
+  .back { background: none; border: none; color: #0a84ff; font-size: 15px; cursor: pointer; }
+
+  .app-body { flex: 1; padding: 16px; overflow-y: auto; box-sizing: border-box; }
+
+  /* Control Center */
+  .control-center {
+    position: absolute; top: 0; left: 0; width: 100%; height: 0; 
+    background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(35px);
+    z-index: 95; transition: height 0.35s ease; overflow: hidden; color: white;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; 
+    border-radius: 0 0 36px 36px;
+  }
+  .control-center.open { height: 260px; padding: 25px; box-sizing: border-box; }
+
+  /* Komponen Aplikasi Tambahan */
+  .calc-display { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; font-size: 28px; text-align: right; margin-bottom: 10px; color: white; }
+  .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .calc-btn { background: #333; color: white; border: none; border-radius: 16px; height: 42px; font-size: 16px; cursor: pointer; }
+  .calc-btn.op { background: #FF9500; } .calc-btn.grey { background: #a5a5a5; color: black; } .calc-btn.eq { background: #34C759; }
+
+  .chat-me { background: #007AFF; color: white; padding: 8px 12px; border-radius: 12px 12px 0 12px; margin: 5px 0 5px auto; width: fit-content; max-width: 80%; font-size: 13px; }
+  .chat-other { background: #2c2c2e; color: white; padding: 8px 12px; border-radius: 12px 12px 12px 0; margin: 5px auto 5px 0; width: fit-content; max-width: 80%; font-size: 13px; }
+
+  .spotify-container { background: linear-gradient(180deg, #1fdf64 0%, #121212 40%); padding: 16px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; justify-content: space-between; }
+  .spotify-album { width: 110px; height: 110px; border-radius: 12px; background: #282828; margin: 10px auto; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+  .spotify-album.playing { animation: pulse 1.5s infinite alternate; }
+  @keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(1.04); } }
+  .spotify-playlist { max-height: 130px; overflow-y: auto; background: rgba(255,255,255,0.05); border-radius: 10px; padding: 6px; text-align: left; }
+  .spotify-song-item { font-size: 11px; padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; cursor: pointer; color: #b3b3b3; }
+  .spotify-song-item.active { color: #1DB954; font-weight: bold; }
+
+  .safari-browser { display: flex; flex-direction: column; height: 100%; background: #1c1c1e; }
+  .safari-body { flex: 1; background: white; }
+  .safari-bar { background: rgba(28,28,30,0.95); padding: 10px 16px 20px 16px; display: flex; align-items: center; gap: 10px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .safari-url { flex: 1; background: rgba(255,255,255,0.12); border-radius: 16px; padding: 6px 12px; display: flex; align-items: center; gap: 6px; }
+  .safari-url input { background: transparent; border: none; color: white; width: 100%; outline: none; font-size: 12px; }
+
+  .snake-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; }
+  #snake-canvas { background: #000; border: 2px solid #333; border-radius: 12px; }
+  .snake-controls { display: grid; grid-template-columns: repeat(3, 50px); gap: 6px; margin-top: 12px; justify-content: center; }
+  .snake-btn { background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 10px; height: 40px; font-size: 16px; cursor: pointer; }
+
+  /* Home Indicator (Tombol Bawah khas iOS) */
+  .home-indicator {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 16px;
+    background: transparent;
+    border-radius: 8px;
+    z-index: 99;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-indicator::after {
+    content: '';
+    width: 110px;
+    height: 4px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .home-indicator:active::after {
+    background: rgba(255,255,255,0.9);
+    transform: scaleX(0.95);
+  }

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>iPhone iOS Simulator — Ultimate Edition with Home Indicator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<p class="page-caption"><span class="dot"></span> Prototipe iPhone dengan Home Indicator Aktif</p>
+
+<div class="phone">
+  <!-- Control Center -->
+  <div class="control-center" id="control-center">
+    <h3 style="margin: 0 0 15px 0; font-size: 15px;">Pusat Kontrol</h3>
+    <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+      <button class="calc-btn" id="cc-torch" style="width: 100px; font-size: 12px;">🔦 Senter: Mati</button>
+      <button class="calc-btn" id="cc-wifi" style="width: 100px; font-size: 12px;">📶 Wi-Fi: Aktif</button>
+    </div>
+    <button class="calc-btn" onclick="toggleControlCenter()" style="width: 80px; font-size: 12px; background: rgba(255,255,255,0.2);">Tutup</button>
+  </div>
+
+  <div class="notch" onclick="toggleControlCenter()"></div>
+  <div class="screen">
+    <div class="statusbar">
+      <span onclick="toggleControlCenter()" style="cursor:pointer">9:41</span>
+      <div class="icons">
+        <div class="signal"><span></span><span></span><span></span><span></span></div>
+        <div class="battery"><div class="battery-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- HOME SCREEN -->
+    <div id="home">
+      <div class="app-grid">
+        <button class="app-icon" data-app="insight"><div class="icon-box ic-1">📊</div><span>Insight</span></button>
+        <button class="app-icon" data-app="kalkulator"><div class="icon-box ic-2">🧮</div><span>Kalkulator</span></button>
+        <button class="app-icon" data-app="catatan"><div class="icon-box ic-3">📝</div><span>Catatan</span></button>
+        <button class="app-icon" data-app="profil"><div class="icon-box ic-4">👤</div><span>Profil</span></button>
+        <button class="app-icon" data-app="wa"><div class="icon-box ic-wa">💬</div><span>WhatsApp</span></button>
+        <button class="app-icon" data-app="safari"><div class="icon-box ic-safari">🧭</div><span>Safari</span></button>
+        <button class="app-icon" data-app="medsos"><div class="icon-box ic-medsos">📷</div><span>Sosmed</span></button>
+        <button class="app-icon" data-app="camera"><div class="icon-box ic-camera">📸</div><span>Kamera</span></button>
+        <button class="app-icon" data-app="spotify"><div class="icon-box ic-spotify">🎧</div><span>Spotify</span></button>
+        <button class="app-icon" data-app="snake"><div class="icon-box ic-game">🐍</div><span>Game Ular</span></button>
+      </div>
+      
+      <div class="dock">
+        <button class="app-icon" data-app="wa"><div class="icon-box ic-wa">💬</div></button>
+        <button class="app-icon" data-app="safari"><div class="icon-box ic-safari">🧭</div></button>
+        <button class="app-icon" data-app="spotify"><div class="icon-box ic-spotify">🎧</div></button>
+        <button class="app-icon" data-app="snake"><div class="icon-box ic-game">🐍</div></button>
+      </div>
+    </div>
+
+    <!-- APP: INSIGHT -->
+    <div class="app-screen" id="app-insight">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Insight</h1></div>
+      <div class="app-body" style="text-align: center; padding-top: 40px;">
+        <div style="font-size: 50px; font-weight: bold;" id="counter">0</div>
+        <p style="color: #888; font-size: 12px;">TOTAL DITEKAN</p>
+        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+          <button class="calc-btn" id="btn-minus" style="background:#333; width:90px;">- Kurangi</button>
+          <button class="calc-btn eq" id="btn-plus" style="width:90px;">+ Tambah</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP: KALKULATOR -->
+    <div class="app-screen" id="app-kalkulator">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Kalkulator</h1></div>
+      <div class="app-body">
+        <div class="calc-display" id="calc-display">0</div>
+        <div class="calc-grid">
+          <button class="calc-btn grey" data-c="clear">AC</button>
+          <button class="calc-btn grey" data-c="sign">+/−</button>
+          <button class="calc-btn grey" data-c="percent">%</button>
+          <button class="calc-btn op" data-c="/">÷</button>
+          <button class="calc-btn" data-n="7">7</button><button class="calc-btn" data-n="8">8</button><button class="calc-btn" data-n="9">9</button><button class="calc-btn op" data-c="*">×</button>
+          <button class="calc-btn" data-n="4">4</button><button class="calc-btn" data-n="5">5</button><button class="calc-btn" data-n="6">6</button><button class="calc-btn op" data-c="-">−</button>
+          <button class="calc-btn" data-n="1">1</button><button class="calc-btn" data-n="2">2</button><button class="calc-btn" data-n="3">3</button><button class="calc-btn op" data-c="+">+</button>
+          <button class="calc-btn" data-n="0" style="grid-column:span 2;">0</button>
+          <button class="calc-btn" data-n=".">.</button>
+          <button class="calc-btn eq" data-c="=">=</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP: CATATAN -->
+    <div class="app-screen" id="app-catatan">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Catatan</h1></div>
+      <div class="app-body">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+          <input type="text" id="note-text" placeholder="Tulis catatan..." style="flex:1; padding:8px; border-radius:10px; border:1px solid #444; background:#222; color:white;">
+          <button class="calc-btn eq" id="note-add" style="width: 40px;">+</button>
+        </div>
+        <div id="note-list"></div>
+      </div>
+    </div>
+
+    <!-- APP: PROFIL -->
+    <div class="app-screen" id="app-profil">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Profil</h1></div>
+      <div class="app-body" style="text-align: center; padding-top: 20px;">
+        <div id="avatar" style="width: 70px; height: 70px; background: #007AFF; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: bold;">F</div>
+        <h3 class="profile-name" style="margin: 10px 0 2px 0;">Faqih</h3>
+        <p style="color: #888; font-size: 12px; margin-bottom: 20px;" id="profile-phone">faqihm398@gmail.com</p>
+        <button class="calc-btn" id="btn-edit-name" style="width: 100%; margin-bottom: 10px;">✎ Ubah Nama</button>
+        <button class="calc-btn" id="btn-logout" style="width: 100%; background: #FF3B30;">➜ Keluar Akun</button>
+      </div>
+    </div>
+
+    <!-- APP: WHATSAPP -->
+    <div class="app-screen" id="app-wa">
+      <div class="app-header">
+        <button class="back" data-back>‹ Home</button>
+        <h1 id="wa-contact-name" style="font-size:14px;">faqih</h1>
+        <button id="btn-save-contact" style="background:#128C7E; color:white; border:none; padding:4px 8px; border-radius:6px; font-size:11px;">Simpan</button>
+      </div>
+      <div class="app-body" style="background:#0b141a; display:flex; flex-direction:column;">
+        <div id="wa-chat-box" style="flex:1; overflow-y:auto; padding-bottom:10px;">
+          <div class="chat-other">Halog,guys</div>
+        </div>
+        <div style="display:flex; gap:6px; margin-top:5px;">
+          <input type="text" id="wa-input" placeholder="Ketik pesan..." style="flex:1; padding:8px; border-radius:10px; border:1px solid #444; background:#222; color:white; font-size:12px;">
+          <button class="calc-btn eq" id="wa-send" style="width:40px;">➤</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP: SAFARI -->
+    <div class="app-screen" id="app-safari">
+      <div class="safari-browser">
+        <div class="safari-body"><iframe id="safari-frame" src="https://example.com" style="width:100%; height:100%; border:none;"></iframe></div>
+        <div class="safari-bar">
+          <button class="back" data-action="back" style="color:#0a84ff;">‹</button>
+          <div class="safari-url"><span>🔒</span><input type="text" id="safari-url-input" value="https://example.com"></div>
+          <button class="back" data-back>Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP: SOSMED -->
+    <div class="app-screen" id="app-medsos">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Sosmed</h1></div>
+      <div class="app-body">
+        <div style="background:#222; border-radius:12px; overflow:hidden;">
+          <div style="padding:10px; font-weight:bold; font-size:12px;">👤 Budi_traveler</div>
+          <div style="height:140px; background:linear-gradient(135deg,#ff7e5f,#feb47b); display:flex; align-items:center; justify-content:center; font-size:35px;">🏖️</div>
+          <div style="padding:10px;">
+            <button class="like-btn" style="background:none; border:none; font-size:20px; cursor:pointer;">🤍</button>
+            <p style="margin:5px 0 0 0; font-size:12px;">Santai di pantai! ✨</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APP: KAMERA -->
+    <div class="app-screen" id="app-camera">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Kamera</h1></div>
+      <div class="app-body" style="display:flex; flex-direction:column; justify-content:space-between; align-items:center;">
+        <div id="viewfinder" style="width:100%; height:320px; background:#000; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#777; font-size:13px;">Pratinjau Kamera</div>
+        <button id="btn-shoot" style="width:60px; height:60px; border-radius:50%; background:white; border:4px solid #aaa; cursor:pointer; margin-bottom:10px;"></button>
+      </div>
+    </div>
+
+    <!-- APP: SPOTIFY -->
+    <div class="app-screen" id="app-spotify">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Spotify</h1></div>
+      <div class="spotify-container">
+        <div style="text-align: center;">
+          <div class="spotify-album" id="spotify-disc">🟢</div>
+          <h3 id="spotify-song-title" style="margin: 4px 0 2px 0; font-size: 15px;">DVRST - Close Eyes</h3>
+          <p id="spotify-song-artist" style="margin: 0; color: #b3b3b3; font-size: 11px;">Phonk Style</p>
+          <button id="spotify-play-btn" style="margin-top: 10px; width: 110px; padding: 6px; border-radius: 20px; background: #1DB954; color: white; border: none; font-weight: bold; cursor: pointer; font-size: 12px;">▶ Putar</button>
+        </div>
+        <div class="spotify-playlist" id="spotify-playlist"></div>
+      </div>
+    </div>
+
+    <!-- APP: GAME ULAR -->
+    <div class="app-screen" id="app-snake">
+      <div class="app-header"><button class="back" data-back>‹ Home</button><h1>Game Ular</h1></div>
+      <div class="app-body snake-container">
+        <div style="display:flex; justify-content:space-between; width:200px; margin-bottom:8px; font-size:12px;">
+          <span>Skor: <span id="snake-score">0</span></span>
+          <span id="snake-status" style="color:#34C759;">Main</span>
+        </div>
+        <canvas id="snake-canvas" width="200" height="200"></canvas>
+        <div class="snake-controls">
+          <div></div><button class="snake-btn" id="btn-up">▲</button><div></div>
+          <button class="snake-btn" id="btn-left">◀</button>
+          <button class="snake-btn" id="btn-restart" style="background:#34C759;">🔄</button>
+          <button class="snake-btn" id="btn-right">▶</button>
+          <div></div><button class="snake-btn" id="btn-down">▼</button><div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garis Home Indicator Bawah (Klik untuk Kembali ke Beranda ala iOS) -->
+    <div class="home-indicator" id="home-indicator" title="Kembali ke Beranda"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
